@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghosted - Đăng kí</title>
+  </head>
+  <body>
+    <script src="js/setup.js"></script>
+
+    <main>
+      <div id="window-container" class="card">
+        <h1 class="text-center"><b>ĐĂNG KÍ</b></h1>
+        <div id="account-form-container">
+          <form action="" id="register-form">
+            <div class="input-box">
+              <h4>Username</h4>
+              <input
+                type="text"
+                placeholder="Username của bạn"
+                name="username"
+                id="username"
+                minlength="6"
+                maxlength="18"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <h4>Email</h4>
+              <input
+                type="email"
+                placeholder="Email của bạn"
+                name="email"
+                id="email"
+              />
+            </div>
+
+            <div class="input-box">
+              <h4>Mật khẩu</h4>
+              <input
+                type="password"
+                placeholder="Mật khẩu của bạn"
+                name="password"
+                id="password"
+                minlength="6"
+                maxlength="18"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <h4>Nhập lại mật khẩu</h4>
+              <input
+                type="password"
+                placeholder="Mật khẩu của bạn"
+                name="passwordRetype"
+                id="passwordRetype"
+                minlength="6"
+                maxlength="18"
+                required
+              />
+            </div>
+
+            <div class="input-box text-center" id="submit-box">
+              <button type="submit" class="btn btn-primary">
+                <b>Đăng kí</b>
+              </button>
+              <p>
+                <a href="signin.html">(*) Đã có tài khoản?</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="js/login_register.js"></script>
+    <script src="js/footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+#video-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-self: center;
+}
+
+#window-container {
+  justify-self: center;
+  margin: 2rem;
+  padding: 2rem;
+  min-width: 70vw;
+  max-width: 90vw;
+}
+
+#account-form-container > form {
+  justify-self: center;
+}
+
+.input-box {
+  padding: 0.25rem;
+}
+
+.input-box > input {
+  max-width: 60vw;
+  min-width: 20vw;
+  height: 2rem;
+}
+
+#submit-box {
+  padding-top: 1rem;
+  justify-self: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9999;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
