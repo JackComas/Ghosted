@@ -66,6 +66,9 @@ function getVideos() {
               <h6 class="card-subtitle mb-2 text-body-secondary">${channelTitle}</h6>
             </div>
           </div>`;
+        vid.addEventListener("click", () => {
+          window.location.href = `https://youtu.be/${vidId}`;
+        });
         vidBox.appendChild(vid);
       }
     });
@@ -97,10 +100,44 @@ window.onload = function () {
       JSON.parse(promptData).searchPrompt || "FAILED TO RECEIVE PROMPT";
   }
   if (document.getElementById("video-container") != null) {
-    getVideos();
+    // getVideos();
   }
   setInterval(navSpacing, 1);
   if (forms) {
-    refillForms();
+    console.log("loaded");
+
+    let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
+    if (accountDatabase != null) {
+      loggedIn = accountDatabase.loggedIn;
+    }
+    console.log(loggedIn);
+    if (loggedIn != -1) {
+      this.alert("You are logged in, redirecting to Home Page.");
+      window.location.href = "/index.html";
+    } else {
+      refillForms();
+    }
   }
 };
+
+function resetLoggedIn() {
+  let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
+  if (accountDatabase != null) {
+    loggedIn = accountDatabase.loggedIn || -1;
+    accountList = accountDatabase.accountList || [];
+    usernameList = accountDatabase.usernameList || [];
+  } else {
+    accountDatabase = {
+      loggedIn: -1,
+      accountList: [],
+      usernameList: [],
+    };
+  }
+  loggedIn = -1;
+  accountDatabase = {
+    loggedIn,
+    accountList,
+    usernameList,
+  };
+  localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
+}

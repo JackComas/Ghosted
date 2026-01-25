@@ -21,8 +21,8 @@
 }
 
 .input-box > input {
-  max-width: 60vw;
-  min-width: 20vw;
+  margin: 0 1rem;
+  width: 400px;
   height: 2rem;
 }
 

@@ -1,2 +1,1 @@
-"# Ghosted" 
-"# Ghosted" 
+# Ghosted
