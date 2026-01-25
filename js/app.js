@@ -29,9 +29,9 @@ function getVideos() {
   console.log(prompt);
 
   if (nextPage == "") {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true`;
+    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20videos&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true`;
   } else if (nextPage != "") {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true&pageToken=${nextPage}`;
+    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20videos&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true&pageToken=${nextPage}`;
   }
   // GET VIDEOS
   fetch(url)
@@ -100,7 +100,7 @@ window.onload = function () {
       JSON.parse(promptData).searchPrompt || "FAILED TO RECEIVE PROMPT";
   }
   if (document.getElementById("video-container") != null) {
-    // getVideos();
+    getVideos();
   }
   setInterval(navSpacing, 1);
   if (forms) {
