@@ -113,7 +113,7 @@ window.onload = function () {
   if (forms) {
     if (loggedIn != -1) {
       this.alert("You are logged in, redirecting to Home Page.");
-      window.location.href = getCurrentLink() + "/index.html";
+      window.location.href = getCurrentLink();
     } else {
       refillForms();
     }
