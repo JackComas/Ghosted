@@ -99,9 +99,6 @@ window.onload = function () {
   if (accountDatabase != null) {
     loggedIn = accountDatabase.loggedIn;
   }
-
-  // Change Navbar
-  navAccountText = this.document.getElementById("account");
   if (promptDisplay != null) {
     const promptData = localStorage.getItem("lastSearchPrompt");
     if (!promptData) return;
