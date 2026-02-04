@@ -1,5 +1,6 @@
 const API_key = "AIzaSyCmKXIR9SWhxI5gF94jfohAnPPY3TMdTgo";
 // const API_key = "INSERT_API_KEY_HERE";
+// Bro why isn't this working
 // Get your API Key at https://console.cloud.google.com/apis/library/youtube.googleapis.com
 
 /*        
@@ -80,7 +81,7 @@ search.addEventListener("submit", function (event) {
   event.preventDefault();
   const searchPrompt = search.searchInput.value;
   localStorage.setItem("lastSearchPrompt", JSON.stringify({ searchPrompt }));
-  window.location.href = "/search.html";
+  window.location.href = getCurrentLink() + "/search.html";
 });
 
 // Keeping the navbar on top while covering nothing
@@ -106,13 +107,13 @@ window.onload = function () {
       JSON.parse(promptData).searchPrompt || "FAILED TO RECEIVE PROMPT";
   }
   if (document.getElementById("video-container") != null) {
-    getVideos();
+    // getVideos();
   }
   setInterval(navSpacing, 1);
   if (forms) {
     if (loggedIn != -1) {
       this.alert("You are logged in, redirecting to Home Page.");
-      window.location.href = "/index.html";
+      window.location.href = getCurrentLink() + "/index.html";
     } else {
       refillForms();
     }
@@ -139,4 +140,17 @@ function resetLoggedIn() {
     usernameList,
   };
   localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
+}
+
+function getCurrentLink() {
+  text = window.location.href;
+  const URLParts = text.split("/");
+  const isHTML = URLParts[URLParts.length - 1].includes(".html");
+
+  console.log(isHTML);
+  if (isHTML) {
+    return URLParts.slice(0, URLParts.length - 1).join("/");
+  } else {
+    return URLParts.join("/");
+  }
 }
