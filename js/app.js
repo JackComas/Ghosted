@@ -141,16 +141,3 @@ function resetLoggedIn() {
   };
   localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
 }
-
-function getCurrentLink() {
-  text = window.location.href;
-  const URLParts = text.split("/");
-  const isHTML = URLParts[URLParts.length - 1].includes(".html");
-
-  console.log(isHTML);
-  if (isHTML) {
-    return URLParts.slice(0, URLParts.length - 1).join("/");
-  } else {
-    return URLParts.join("/");
-  }
-}
