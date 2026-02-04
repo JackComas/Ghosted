@@ -66,7 +66,7 @@ header.innerHTML = `
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html"
+                <a class="nav-link active" aria-current="page" href="${getCurrentLink()}"
                   >Home</a
                 >
               </li>
@@ -102,7 +102,7 @@ header.innerHTML = `
                   <a
                     class="nav-link active"
                     aria-current="page"
-                    href="/signin.html"
+                    href="${getCurrentLink() + "/signin.html"}"
                     id="account"
                     >Log In/Register</a
                   >
