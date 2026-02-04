@@ -1,4 +1,5 @@
-const API_key = "INSERT_API_KEY_HERE";
+const API_key = "AIzaSyCmKXIR9SWhxI5gF94jfohAnPPY3TMdTgo";
+// const API_key = "INSERT_API_KEY_HERE";
 // Get your API Key at https://console.cloud.google.com/apis/library/youtube.googleapis.com
 
 /*        
@@ -29,9 +30,9 @@ function getVideos() {
   console.log(prompt);
 
   if (nextPage == "") {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20videos&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true`;
+    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20tutorial&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true`;
   } else if (nextPage != "") {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20videos&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true&pageToken=${nextPage}`;
+    url = `https://www.googleapis.com/youtube/v3/search?key=${API_key}&part=snippet&q=${prompt}%20coding%20tutorial&maxResults=20&type=video&videoDuration=medium&videoEmbeddable=true&pageToken=${nextPage}`;
   }
   // GET VIDEOS
   fetch(url)
@@ -92,7 +93,15 @@ function navSpacing() {
 
 // On Load Function
 window.onload = function () {
+  // GET LOG IN STATE
   nextPage = "";
+  let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
+  if (accountDatabase != null) {
+    loggedIn = accountDatabase.loggedIn;
+  }
+
+  // Change Navbar
+  navAccountText = this.document.getElementById("account");
   if (promptDisplay != null) {
     const promptData = localStorage.getItem("lastSearchPrompt");
     if (!promptData) return;
@@ -104,13 +113,6 @@ window.onload = function () {
   }
   setInterval(navSpacing, 1);
   if (forms) {
-    console.log("loaded");
-
-    let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
-    if (accountDatabase != null) {
-      loggedIn = accountDatabase.loggedIn;
-    }
-    console.log(loggedIn);
     if (loggedIn != -1) {
       this.alert("You are logged in, redirecting to Home Page.");
       window.location.href = "/index.html";
