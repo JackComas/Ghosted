@@ -103,7 +103,7 @@ header.innerHTML = `
                     class="nav-link active"
                     aria-current="page"
                     href="${getCurrentLink() + "/signin.html"}"
-                    id="account"
+                    id="account-btn"
                     >Log In/Register</a
                   >
                 </li>
@@ -126,10 +126,15 @@ function getCurrentLink() {
   const URLParts = text.split("/");
   const isHTML = URLParts[URLParts.length - 1].includes(".html");
 
-  console.log(isHTML);
   if (isHTML) {
-    return URLParts.slice(0, URLParts.length - 1).join("/");
+    returnVar = URLParts.slice(0, URLParts.length - 1).join("/");
   } else {
-    return URLParts.join("/");
+    returnVar = URLParts.join("/");
+  }
+  console.log(returnVar[returnVar.length - 1] == "/");
+  if (returnVar[returnVar.length - 1] == "/") {
+    return returnVar.slice(0, returnVar.length - 1);
+  } else {
+    return returnVar;
   }
 }
