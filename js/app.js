@@ -1,4 +1,4 @@
-const API_key = "AIzaSyBmA3HNAsG7LsZtSUMmVUqz24NuizqkJY0";
+const API_key = "AIzaSyCmKXIR9SWhxI5gF94jfohAnPPY3TMdTgo";
 // const API_key = "INSERT_API_KEY_HERE";
 // Bro why isn't this working
 // Get your API Key at https://console.cloud.google.com/apis/library/youtube.googleapis.com
@@ -196,8 +196,6 @@ function getSavedVids() {
       .then((data) => {
         videoList = data.items;
         nextPage = data.nextPageToken;
-        console.log(nextPage);
-        console.log(videoList);
         let vidId = videoList[0].id.videoId;
         let vidTitle = videoList[0].snippet.title;
         let channelTitle = videoList[0].snippet.channelTitle;
@@ -232,8 +230,9 @@ function getSavedVids() {
         </button>
         <button
           class="btn btn-primary save-btn"
+          id="${vidID}"
           style="margin: 0rem 0.25rem; position: relative; bottom: 4rem; padding: 0.5rem 5rem;"
-          onclick="removeSavedVideo('${vidId}');">
+          onclick="removeSavedVideo(this.id);">
           Remove
         </button>`;
         vid.classList.add("text-center");
@@ -271,32 +270,49 @@ function saveVideo(videoID) {
   localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
 }
 function removeSavedVideo(videoID) {
-  let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
-  if (accountDatabase != null) {
-    loggedIn = accountDatabase.loggedIn;
-    accountList = accountDatabase.accountList || [];
-    usernameList = accountDatabase.usernameList || [];
-  } else {
-    accountDatabase = {
-      loggedIn: -1,
-      accountList: [],
-      usernameList: [],
-    };
-  }
-  if (loggedIn == -1) {
-    alert("You need an account to do this action.");
-  } else {
-    vidIndex = accountList[loggedIn].savedVideos.indexOf(videoID);
-    if (vidIndex > -1) {
-      accountList[loggedIn].savedVideos.splice(vidIndex, 1);
-    }
-  }
-  accountDatabase = {
-    loggedIn,
-    accountList,
-    usernameList,
-  };
-  localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
+  alert("This feature is currently under construction");
+  // console.log(videoID);
+  // let accountDatabase = JSON.parse(localStorage.getItem("accountDatabase"));
+  // if (accountDatabase != null) {
+  //   loggedIn = accountDatabase.loggedIn;
+  //   accountList = accountDatabase.accountList;
+  //   usernameList = accountDatabase.usernameList;
+  // } else {
+  //   accountDatabase = {
+  //     loggedIn: -1,
+  //     accountList: [],
+  //     usernameList: [],
+  //   };
+  // }
+
+  // console.log(accountDatabase.accountList[loggedIn].savedVideos);
+
+  // vidArr = accountDatabase.accountList[loggedIn].savedVideos;
+  // if (loggedIn == -1) {
+  //   alert("You need an account to do this action.");
+  // } else {
+  //   removing = -1;
+  //   for (i = 0; i <= vidArr.length; i++) {
+  //     if (vidArr[i] == videoID) {
+  //       removing = i;
+  //       break;
+  //     }
+  //   }
+  //   if (removing != -1) {
+  //     accountList[loggedIn].savedVideos = accountList[
+  //       loggedIn
+  //     ].savedVideos.filter((i) => i != videoID);
+  //     alert("Video removed, reloading page.");
+  //     localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
+  //     window.location.reload();
+  //   }
+  // }
+  // accountDatabase = {
+  //   loggedIn,
+  //   accountList,
+  //   usernameList,
+  // };
+  // localStorage.setItem("accountDatabase", JSON.stringify(accountDatabase));
 }
 function gotoVideo(videoID) {
   window.location.href = `https://youtu.be/${videoID};`;
