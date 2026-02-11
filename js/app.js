@@ -1,6 +1,5 @@
 const API_key = "AIzaSyCmKXIR9SWhxI5gF94jfohAnPPY3TMdTgo";
 // const API_key = "INSERT_API_KEY_HERE";
-// Bro why isn't this working
 // Get your API Key at https://console.cloud.google.com/apis/library/youtube.googleapis.com
 
 /*        
